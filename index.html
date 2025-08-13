@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>פרלינים של דניאל - שוקולד בוטיק מזכרון יעקב</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-brown: #3E2723;
+            --secondary-brown: #5D4037;
+            --accent-orange: #FF8A50;
+            --accent-gold: #FFB74D;
+            --light-cream: #FFF8E1;
+            --warm-white: #FEFEFE;
+            --text-dark: #2E2E2E;
+            --text-medium: #5D4037;
+            --text-light: #8D6E63;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.12);
+            --shadow-heavy: rgba(0, 0, 0, 0.16);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,249 +36,410 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #F4A460 100%);
+            font-family: 'Heebo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #D2691E 50%, #F4A460 75%, #FFE4B5 100%);
             min-height: 100vh;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px;
         }
 
         .hero {
             text-align: center;
-            padding: 40px 0;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--light-cream) 100%);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 24px 48px var(--shadow-medium), 0 8px 16px var(--shadow-light);
+            margin-bottom: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 138, 80, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 183, 77, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            color: #5D4037;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary-brown);
+            margin-bottom: 16px;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease-out;
+            letter-spacing: -0.02em;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            color: #8D6E63;
-            margin-bottom: 20px;
-            font-weight: 300;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-medium);
+            margin-bottom: 24px;
+            font-weight: 400;
+            opacity: 0.9;
         }
 
         .location {
-            font-size: 1.2rem;
-            color: #6D4C41;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 500;
         }
 
         .chocolate-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #3E2723, #5D4037);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--secondary-brown) 50%, var(--accent-orange) 100%);
             border-radius: 50%;
-            margin: 0 auto 30px;
+            margin: 0 auto 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            color: #D2691E;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
+            font-size: 56px;
+            color: var(--accent-gold);
+            box-shadow: 0 16px 32px var(--shadow-medium), 0 4px 8px var(--shadow-light);
+            animation: pulse 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chocolate-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 4s infinite;
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--light-cream) 100%);
+            padding: 32px 24px;
+            border-radius: var(--border-radius-md);
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
-            background-clip: padding-box;
+            box-shadow: 0 8px 24px var(--shadow-light), 0 4px 8px var(--shadow-light);
+            transition: all var(--transition-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform var(--transition-medium);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border-color: #D2691E;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-medium), 0 8px 16px var(--shadow-light);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            transition: transform var(--transition-medium);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .feature-title {
-            font-size: 1.3rem;
-            color: #5D4037;
-            margin-bottom: 10px;
-            font-weight: bold;
+            font-size: 1.4rem;
+            color: var(--primary-brown);
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .feature-description {
-            color: #6D4C41;
-            line-height: 1.5;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #5D4037, #8D6E63);
-            color: white;
-            padding: 50px 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 40px 0;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1rem;
             opacity: 0.9;
         }
 
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--secondary-brown) 50%, var(--accent-orange) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            margin: 48px 0;
+            box-shadow: 0 20px 40px var(--shadow-heavy), 0 8px 16px var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 183, 77, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 24px;
+            font-weight: 700;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .phone-input {
-            max-width: 400px;
-            margin: 0 auto 30px;
+            max-width: 420px;
+            margin: 0 auto 40px;
             display: flex;
-            gap: 10px;
+            gap: 16px;
             flex-direction: column;
         }
 
         .phone-input input {
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            padding: 18px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-md);
+            font-size: 1.2rem;
             text-align: center;
             direction: ltr;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all var(--transition-medium);
+            backdrop-filter: blur(10px);
         }
 
         .phone-input input:focus {
             outline: none;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 4px rgba(255, 183, 77, 0.2), 0 8px 24px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .phone-input input::placeholder {
+            color: var(--text-light);
+            opacity: 0.8;
         }
 
         .generate-qr-btn {
-            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-gold) 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 48px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            transition: all var(--transition-medium);
+            box-shadow: 0 12px 28px rgba(255, 138, 80, 0.3), 0 4px 8px rgba(255, 138, 80, 0.2);
+            text-transform: none;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generate-qr-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .generate-qr-btn:hover::before {
+            left: 100%;
         }
 
         .generate-qr-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 32px rgba(255, 138, 80, 0.4), 0 8px 16px rgba(255, 138, 80, 0.3);
+        }
+
+        .generate-qr-btn:active {
+            transform: translateY(-2px) scale(1.01);
         }
 
         .qr-result {
-            margin-top: 30px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            margin-top: 40px;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-md);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: none;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            background: white;
-            border-radius: 10px;
+            gap: 10px;
+            align-items: baseline;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 24px;
+            background: var(--warm-white);
+            border-radius: var(--border-radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            color: #333;
+            font-size: 15px;
+            color: var(--text-dark);
             text-align: center;
-            padding: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 24px var(--shadow-light);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .testimonials {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 30px 0;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--light-cream) 100%);
+            padding: 48px 40px;
+            border-radius: var(--border-radius-lg);
+            margin: 48px 0;
+            box-shadow: 0 16px 32px var(--shadow-light), 0 4px 8px var(--shadow-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .testimonials h3 {
             text-align: center;
-            color: #5D4037;
-            font-size: 2rem;
-            margin-bottom: 30px;
+            color: var(--primary-brown);
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .testimonial {
-            background: #F5F5F5;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 15px 0;
-            border-right: 5px solid #D2691E;
+            background: var(--warm-white);
+            padding: 28px 32px;
+            border-radius: var(--border-radius-md);
+            margin: 20px 0;
+            border-right: 4px solid var(--accent-orange);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+
+        .testimonial:hover {
+            transform: translateX(-4px);
+            box-shadow: 0 8px 24px var(--shadow-medium);
+            border-right-color: var(--accent-gold);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            font-size: 4rem;
+            color: var(--accent-orange);
+            opacity: 0.3;
+            font-family: serif;
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 10px;
-            color: #5D4037;
+            margin-bottom: 16px;
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-author {
-            font-weight: bold;
-            color: #8D6E63;
+            font-weight: 600;
+            color: var(--text-light);
             text-align: left;
+            font-size: 1rem;
         }
 
         .footer {
             text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            color: #5D4037;
+            padding: 40px 32px;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--light-cream) 100%);
+            border-radius: var(--border-radius-lg);
+            color: var(--text-medium);
+            box-shadow: 0 12px 24px var(--shadow-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-info {
-            font-size: 1.1rem;
-            margin: 10px 0;
+            font-size: 1.2rem;
+            margin: 12px 0;
+            font-weight: 500;
+            color: var(--text-light);
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -265,206 +450,447 @@
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
+                box-shadow: 0 16px 32px var(--shadow-medium), 0 4px 8px var(--shadow-light);
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.08);
+                box-shadow: 0 20px 40px var(--shadow-heavy), 0 8px 16px var(--shadow-medium);
             }
         }
 
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Enhanced responsive design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .container {
+                padding: 16px;
             }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
+
+            .hero {
+                padding: 40px 24px;
+                margin-bottom: 32px;
             }
-            
-            .cta-section h2 {
-                font-size: 1.8rem;
+
+            .chocolate-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 48px;
+                margin-bottom: 24px;
             }
-            
+
             .features {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 32px 0;
+            }
+
+            .feature-card {
+                padding: 24px 20px;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+                margin: 32px 0;
+            }
+
+            .phone-input {
+                max-width: 100%;
+                gap: 12px;
+            }
+
+            .phone-input input {
+                padding: 16px 20px;
+                font-size: 1.1rem;
+            }
+
+            .generate-qr-btn {
+                padding: 16px 32px;
+                font-size: 1.2rem;
+            }
+
+            .testimonials {
+                padding: 32px 24px;
+                margin: 32px 0;
+            }
+
+            .testimonial {
+                padding: 20px 24px;
+                margin: 16px 0;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .contact-info {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 32px 20px;
+            }
+
+            .chocolate-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
+
+            .feature-card {
+                padding: 20px 16px;
+            }
+
+            .feature-icon {
+                font-size: 3rem;
+            }
+
+            .cta-section {
+                padding: 32px 20px;
+            }
+
+            .testimonials {
+                padding: 24px 20px;
+            }
+
+            .footer {
+                padding: 24px 20px;
+            }
+        }
+
+        /* Focus and accessibility improvements */
+        .generate-qr-btn:focus,
+        .phone-input input:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        .feature-card:focus-within {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 4px;
+        }
+
+        /* Accessibility utilities */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="chocolate-icon">🍫</div>
+        <header class="hero" role="banner">
+            <div class="chocolate-icon" aria-hidden="true">🍫</div>
             <h1>פרלינים של דניאל</h1>
             <div class="subtitle">שוקולד בוטיק בעבודת יד</div>
             <div class="location">
-                📍 שירות בזכרון יעקב - ישראל
+                <span aria-hidden="true">📍</span>
+                <span>שירות בזכרון יעקב - ישראל</span>
             </div>
-            <p style="font-size: 1.2rem; color: #6D4C41; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.3rem; color: var(--text-light); max-width: 600px; margin: 0 auto; font-weight: 400; line-height: 1.6;">
                 גלו את הטעם המושלם של פרלינים בעבודת יד, מוכנים באהבה ובמומחיות מהמטבח הביתי שלי
             </p>
-        </div>
+        </header>
 
-        <div class="features">
-            <div class="feature-card">
-                <span class="feature-icon">🎯</span>
-                <div class="feature-title">איכות פרימיום</div>
-                <div class="feature-description">
+        <section class="features" role="main" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="sr-only">מה מייחד את הפרלינים שלנו</h2>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">🎯</span>
+                <h3 class="feature-title">איכות פרימיום</h3>
+                <p class="feature-description">
                     פרלינים מעולים העשויים משוקולד איכותי בלבד, בעבודת יד ובאהבה
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">💰</span>
-                <div class="feature-title">מחירים נוחים</div>
-                <div class="feature-description">
+                </p>
+            </article>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">💰</span>
+                <h3 class="feature-title">מחירים נוחים</h3>
+                <p class="feature-description">
                     שוקולד יוקרה במחירים שווים ונגישים לכל כיס, ללא פשרות על האיכות
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">🌟</span>
-                <div class="feature-title">טעם שלא תשכחו</div>
-                <div class="feature-description">
+                </p>
+            </article>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">🌟</span>
+                <h3 class="feature-title">טעם שלא תשכחו</h3>
+                <p class="feature-description">
                     כל ביס הוא חוויה של טעמים עשירים ומרקמים מושלמים שיתמכרו אליהם
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">🏠</span>
-                <div class="feature-title">הכנה ביתית</div>
-                <div class="feature-description">
+                </p>
+            </article>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">🏠</span>
+                <h3 class="feature-title">הכנה ביתית</h3>
+                <p class="feature-description">
                     מיוצר במטבח שלי בזכרון יעקב באהבה ותשומת לב לכל פרט
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">🎁</span>
-                <div class="feature-title">מושלם למתנות</div>
-                <div class="feature-description">
+                </p>
+            </article>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">🎁</span>
+                <h3 class="feature-title">מושלם למתנות</h3>
+                <p class="feature-description">
                     פרלינים אלגנטיים המתאימים לכל אירוע או כמתנה מיוחדת לאהובים
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">🚚</span>
-                <div class="feature-title">משלוח באזור</div>
-                <div class="feature-description">
+                </p>
+            </article>
+
+            <article class="feature-card" tabindex="0">
+                <span class="feature-icon" aria-hidden="true">🚚</span>
+                <h3 class="feature-title">משלוח באזור</h3>
+                <p class="feature-description">
                     משלוח מהיר ואמין בזכרון יעקב והסביבה, שמירה על הטריות והאיכות
-                </div>
-            </div>
-        </div>
+                </p>
+            </article>
+        </section>
 
-        <div class="testimonials">
-            <h3>מה הלקוחות אומרים</h3>
-            <div class="testimonial">
-                <div class="testimonial-text">
+        <section class="testimonials" role="region" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">מה הלקוחות אומרים</h2>
+
+            <blockquote class="testimonial" role="article">
+                <p class="testimonial-text">
                     "הפרלינים של דניאל הם פשוט מושלמים! טעם עשיר ומרקם נהדר. הזמנתי כבר כמה פעמים ובכל פעם מתרגשת מחדש!"
-                </div>
-                <div class="testimonial-author">- ,תאיר ת., זכרון יעקב</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "קניתי למסיבת יום הולדת וכולם התלהבו מהפרלינים. איכות מעולה ומחירים הוגנים. בהחלט נזמין שוב!"
-                </div>
-                <div class="testimonial-author">- אמיר א., חיפה</div>
-            </div>
-            
-        </div>
+                </p>
+                <cite class="testimonial-author">תאיר ת., זכרון יעקב</cite>
+            </blockquote>
 
-        <div class="cta-section">
-            <h2>מוכנים לטעום את השוקולד הטוב ביותר?</h2>
+            <blockquote class="testimonial" role="article">
+                <p class="testimonial-text">
+                    "קניתי למסיבת יום הולדת וכולם התלהבו מהפרלינים. איכות מעולה ומחירים הוגנים. בהחלט נזמין שוב!"
+                </p>
+                <cite class="testimonial-author">אמיר א., חיפה</cite>
+            </blockquote>
+        </section>
+
+        <section class="cta-section" role="region" aria-labelledby="cta-heading">
+            <h2 id="cta-heading">מוכנים לטעום את השוקולד הטוב ביותר?</h2>
             <p>השאירו את מספר הטלפון שלכם וקבלו קישור ישיר להזמנה</p>
-            
-            <div class="phone-input">
-                <input type="tel" id="phoneNumber" placeholder="הכניסו מספר טלפון (למשל: 0501234567)" maxlength="10">
-                <button class="generate-qr-btn" onclick="generateQR()">
-                    צרו קישור הזמנה 📱
+
+            <form class="phone-input" onsubmit="generateQR(); return false;" role="form" aria-labelledby="phone-form-label">
+                <label for="phoneNumber" id="phone-form-label" class="sr-only">מספר טלפון להזמנה</label>
+                <input
+                    type="tel"
+                    id="phoneNumber"
+                    placeholder="הכניסו מספר טלפון (למשל: 0501234567)"
+                    maxlength="10"
+                    aria-describedby="phone-help"
+                    required
+                >
+                <div id="phone-help" class="sr-only">הכניסו מספר טלפון ישראלי תקין המתחיל ב-05</div>
+                <button type="submit" class="generate-qr-btn" aria-describedby="btn-help">
+                    <span>צרו קישור הזמנה</span>
+                    <span aria-hidden="true">📱</span>
                 </button>
-            </div>
-            
-            <div class="qr-result" id="qrResult">
-                <h3 style="margin-bottom: 20px;">הקישור שלכם מוכן!</h3>
-                <div class="qr-code" id="qrCode">
+                <div id="btn-help" class="sr-only">לחצו כדי ליצור קישור WhatsApp להזמנה</div>
+            </form>
+
+            <div class="qr-result" id="qrResult" role="region" aria-live="polite" aria-labelledby="result-heading">
+                <h3 id="result-heading" style="margin-bottom: 24px; font-size: 1.5rem;">הקישור שלכם מוכן!</h3>
+                <div class="qr-code" id="qrCode" role="button" tabindex="0" aria-describedby="qr-instructions">
                     [כאן יופיע הקישור לברקוד]
                 </div>
-                <p style="margin-top: 15px; font-size: 1.1rem;">
-                    שמרו את הקישור הזה להזמנות מהירות! 🍫
+                <p id="qr-instructions" style="margin-top: 20px; font-size: 1.2rem; font-weight: 500;">
+                    שמרו את הקישור הזה להזמנות מהירות! <span aria-hidden="true">🍫</span>
                 </p>
-                <p style="margin-top: 10px; opacity: 0.9;">
-                    המספר שהכנסתם: <span id="displayPhone"></span>
+                <p style="margin-top: 12px; opacity: 0.95; font-size: 1.1rem;">
+                    המספר שהכנסתם: <span id="displayPhone" style="font-weight: 600;"></span>
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div class="footer">
-            <h3 style="color: #5D4037; margin-bottom: 20px;">דניאל - פרלינים בוטיק</h3>
-            <div class="contact-info">📍 זכרון יעקב, חיפה</div>
-            <div class="contact-info">📱 טלפון: 0506250150 </div>
-            <div class="contact-info">🍫 שוקולד בעבודת יד באהבה</div>
-            <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+        <footer class="footer" role="contentinfo">
+            <h2 style="color: var(--primary-brown); margin-bottom: 24px; font-size: 1.8rem; font-weight: 700;">דניאל - פרלינים בוטיק</h2>
+
+            <address style="font-style: normal;">
+                <div class="contact-info">
+                    <span aria-hidden="true">📍</span>
+                    <span>זכרון יעקב, חיפה</span>
+                </div>
+                <div class="contact-info">
+                    <span aria-hidden="true">📱</span>
+                    <span>טלפון: <a href="tel:+972506250150" style="color: inherit; text-decoration: none; font-weight: 600;">0506250150</a></span>
+                </div>
+            </address>
+
+            <div class="contact-info" style="margin-top: 16px;">
+                <span aria-hidden="true">🍫</span>
+                <span>שוקולד בעבודת יד באהבה</span>
+            </div>
+
+            <div style="margin-top: 24px; font-size: 1rem; opacity: 0.8; font-weight: 400;">
                 © 2025 פרלינים של דניאל - כל הזכויות שמורות
             </div>
-        </div>
+        </footer>
     </div>
 
     <script>
         function generateQR() {
             const phoneInput = document.getElementById('phoneNumber');
             const phone = phoneInput.value.trim();
-            
+
             if (!phone) {
                 alert('אנא הכניסו מספר טלפון');
-                return;
+                phoneInput.focus();
+                return false;
             }
-            
+
             if (!/^05\d{8}$/.test(phone)) {
                 alert('אנא הכניסו מספר טלפון ישראלי תקין (למשל: 0501234567)');
-                return;
+                phoneInput.focus();
+                return false;
             }
-            
+
             // Create the order link to Daniel's number
             const orderLink = `https://wa.me/972506250150?text=שלום דניאל! אני מעוניין להזמין פרלינים טעימים 🍫 המספר שלי: ${phone}`;
-            
+
             // Show result
             const qrResult = document.getElementById('qrResult');
             const qrCode = document.getElementById('qrCode');
             const displayPhone = document.getElementById('displayPhone');
-            
+
             displayPhone.textContent = phone;
             qrCode.innerHTML = `
-                <div style="font-weight: bold; margin-bottom: 10px;">קישור WhatsApp מוכן!</div>
-                <div style="background: #25D366; color: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <a href="${orderLink}" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">
-                        📱 לחצו כאן להזמנה
+                <div style="font-weight: 600; margin-bottom: 12px; color: var(--primary-brown);">קישור WhatsApp מוכן!</div>
+                <div style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 18px 24px; border-radius: var(--border-radius-md); margin: 12px 0; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); transition: all var(--transition-medium);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <a href="${orderLink}" target="_blank" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px;" aria-label="פתח WhatsApp להזמנה">
+                        <span aria-hidden="true">📱</span>
+                        <span>לחצו כאן להזמנה</span>
                     </a>
                 </div>
-                <div style="font-size: 12px; margin-top: 10px; opacity: 0.7;">
+                <div style="font-size: 13px; margin-top: 12px; opacity: 0.8; color: var(--text-light);">
                     הקישור יפתח את WhatsApp עם הודעה מוכנה לדניאל
                 </div>
             `;
-            
+
             qrResult.style.display = 'block';
-            
-            // Scroll to result
-            qrResult.scrollIntoView({ behavior: 'smooth' });
+            qrResult.setAttribute('aria-hidden', 'false');
+
+            // Scroll to result with smooth animation
+            setTimeout(() => {
+                qrResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+
+            return false;
         }
-        
-        // Allow Enter key to generate QR
-        document.getElementById('phoneNumber').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                generateQR();
-            }
-        });
-        
-        // Add some interactive animations
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+
+        // Enhanced keyboard navigation and accessibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('phoneNumber');
+            const qrResult = document.getElementById('qrResult');
+
+            // Initially hide QR result from screen readers
+            qrResult.setAttribute('aria-hidden', 'true');
+
+            // Enhanced phone input validation
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+                if (value.length > 10) value = value.slice(0, 10);
+                e.target.value = value;
+
+                // Visual feedback for valid input
+                if (/^05\d{8}$/.test(value)) {
+                    e.target.style.borderColor = 'var(--accent-gold)';
+                    e.target.style.boxShadow = '0 0 0 2px rgba(255, 183, 77, 0.2)';
+                } else {
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    e.target.style.boxShadow = 'none';
+                }
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+
+            // Enhanced feature card interactions
+            document.querySelectorAll('.feature-card').forEach((card, index) => {
+                // Add keyboard navigation
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+
+                // Enhanced hover effects with staggered animation
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.03)';
+                    this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+
+                // Add focus styles
+                card.addEventListener('focus', function() {
+                    this.style.outline = '3px solid var(--accent-orange)';
+                    this.style.outlineOffset = '4px';
+                });
+
+                card.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+
+                // Staggered entrance animation
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            });
+
+            // Enhanced testimonial interactions
+            document.querySelectorAll('.testimonial').forEach(testimonial => {
+                testimonial.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(-8px) scale(1.02)';
+                });
+
+                testimonial.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+
+            // Add smooth scroll behavior for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
     </script>

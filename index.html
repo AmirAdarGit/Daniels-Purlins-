@@ -76,9 +76,33 @@
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin: 40px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
 
         .feature-card {
@@ -300,7 +324,7 @@
                 📍 שירות בזכרון יעקב - ישראל
             </div>
             <p style="font-size: 1.2rem; color: #6D4C41; max-width: 600px; margin: 0 auto;">
-                גלו את הטעם המושלם של פרלינים בעבודת יד, מוכנים באהבה ובמומחיות מהמטבח הביתי שלי
+                גלו את הטעם המושלם של פרלינים בעבודת יד, מוכנים באהבה ובExpertise מהמטבח הביתי שלי
             </p>
         </div>
 
@@ -355,14 +379,7 @@
         </div>
 
         <div class="testimonials">
-            <h3>מה הלקוחות אומרים</h3>
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "הפרלינים של דניאל הם פשוט מושלמים! טעם עשיר ומרקם שנמס בפה. הזמנתי כבר כמה פעמים ובכל פעם מתרגשת מחדש!"
-                </div>
-                <div class="testimonial-author">- שירה ב., זכרון יעקב</div>
-            </div>
-            
+            <h3>מה הלקוחות אומרים</h3>            
             <div class="testimonial">
                 <div class="testimonial-text">
                     "קניתי למסיבת יום הולדת והכל התלהבו מהפרלינים. איכות מעולה ומחירים הוגנים. בהחלט נזמין שוב!"
@@ -374,7 +391,7 @@
                 <div class="testimonial-text">
                     "שוקולד בוטיק אמיתי! רואים שדניאל משקיע בכל פרלין. הטעם מדהים והשירות מעולה."
                 </div>
-                <div class="testimonial-author">- מירי כ., בנימינה</div>
+                <div class="testimonial-author">- מيري כ., בנימינה</div>
             </div>
         </div>
 

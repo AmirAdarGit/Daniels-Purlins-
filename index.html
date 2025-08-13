@@ -220,12 +220,14 @@
             background: white;
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             font-size: 14px;
             color: #333;
             text-align: center;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .testimonials {
@@ -456,13 +458,13 @@
             
             displayPhone.textContent = phone;
             qrCode.innerHTML = `
-                <div style="font-weight: bold; margin-bottom: 10px;">קישור WhatsApp מוכן!</div>
-                <div style="background: #25D366; color: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <a href="${orderLink}" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">
+                <div style="font-weight: bold; margin-bottom: 15px; font-size: 16px;">קישור WhatsApp מוכן!</div>
+                <div style="background: #25D366; color: white; padding: 12px 20px; border-radius: 10px; margin: 10px 0; width: 100%; box-sizing: border-box;">
+                    <a href="${orderLink}" target="_blank" style="color: white; text-decoration: none; font-weight: bold; display: block;">
                         📱 לחצו כאן להזמנה
                     </a>
                 </div>
-                <div style="font-size: 12px; margin-top: 10px; opacity: 0.7;">
+                <div style="font-size: 11px; margin-top: 10px; opacity: 0.7; line-height: 1.3;">
                     הקישור יפתח את WhatsApp עם הודעה מוכנה לדניאל
                 </div>
             `;
